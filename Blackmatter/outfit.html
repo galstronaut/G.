@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Outfit – Blackmatter</title>
+  <link rel="icon" href="images/B.png" type="image/png" sizes="32x32">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-200">
+
+  <!-- NAV (simple) -->
+  <nav class="sticky top-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto h-14 px-4 flex items-center justify-between">
+      <a href="index.html#home" class="flex items-center gap-2">
+        <img src="images/logo.png" class="h-8 w-auto" alt="Blackmatter">
+      </a>
+      <a href="index.html#the-archive" class="text-sm px-3 py-1 rounded-md bg-white/10 hover:bg-white/20">← Back</a>
+    </div>
+  </nav>
+
+  <!-- HERO / atmospheric background -->
+  <header class="relative overflow-hidden border-b border-white/10">
+    <img src="images/outfit-hero.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-25">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.12)_0%,transparent_45%)]"></div>
+    <div class="relative max-w-7xl mx-auto px-4 py-14">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide">OUTFIT</h1>
+      <p class="mt-3 text-gray-300 max-w-2xl">Drop apparel dan aksesoris dengan nuansa metal–modern. Scroll, filter, lalu klik item untuk lihat detailnya.</p>
+    </div>
+  </header>
+
+  <!-- CONTENT WRAPPER with subtle glow bg -->
+  <section class="relative">
+    <!-- ambient glow -->
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-[#0c0c12] to-black"></div>
+    <div class="pointer-events-none absolute -top-36 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px]
+                bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.25)_0%,rgba(59,130,246,0.10)_40%,transparent_65%)]
+                blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-[260px,1fr] gap-8">
+
+      <!-- SIDEBAR FILTER -->
+      <aside class="lg:sticky lg:top-24 space-y-6">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-semibold tracking-wide uppercase text-gray-300">Products</h2>
+            <button id="resetBtn" class="text-xs px-2 py-1 bg-white/10 hover:bg-white/20 rounded">Reset</button>
+          </div>
+          <div class="mt-4 space-y-4 text-sm">
+            <div>
+              <p class="mb-2 text-gray-400">Kategori</p>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2"><input type="checkbox" class="filter-cat accent-white/80" value="tee"> <span>T-Shirt</span></label>
+                <label class="flex items-center gap-2"><input type="checkbox" class="filter-cat accent-white/80" value="hoodie"> <span>Hoodie</span></label>
+                <label class="flex items-center gap-2"><input type="checkbox" class="filter-cat accent-white/80" value="cap"> <span>Cap</span></label>
+                <label class="flex items-center gap-2"><input type="checkbox" class="filter-cat accent-white/80" value="bag"> <span>Tote/Bag</span></label>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-white/10">
+              <p class="mb-2 text-gray-400">Harga</p>
+              <select id="priceSort" class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2">
+                <option value="featured">Featured</option>
+                <option value="asc">Termurah</option>
+                <option value="desc">Termahal</option>
+                <option value="new">Terbaru</option>
+              </select>
+            </div>
+
+            <div class="pt-3 border-t border-white/10">
+              <p class="mb-2 text-gray-400">Cari</p>
+              <input id="searchBox" type="text" class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2" placeholder="Cari produk…">
+            </div>
+          </div>
+        </div>
+
+        <!-- promo card -->
+        <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-4">
+          <p class="text-2xl font-extrabold">25% OFF</p>
+          <p class="text-sm text-gray-400">Kode: VOID25</p>
+          <button class="mt-4 w-full py-2 rounded-lg bg-white text-black text-sm font-semibold hover:opacity-90">Lihat Koleksi</button>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <div class="space-y-10">
+        <!-- Popular carousel -->
+        <section>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-semibold tracking-wide uppercase text-gray-300">Popular</h3>
+            <div class="flex gap-2">
+              <button id="popPrev" class="h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center">‹</button>
+              <button id="popNext" class="h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center">›</button>
+            </div>
+          </div>
+
+          <div id="popTrack" class="overflow-x-auto scrollbar-thin scrollbar-thumb-white/10">
+            <div class="flex gap-4 min-w-max pr-2">
+              <!-- Card template popular -->
+              <article class="pop card w-56 shrink-0 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                       data-title="Hoodie Eclipse" data-price="529" data-date="2025-08-26" data-cat="hoodie" data-img="images/outfit-hoodie1.jpg">
+                <div class="relative h-36">
+                  <img src="images/outfit-hoodie1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+                </div>
+                <div class="p-3">
+                  <p class="text-sm">Hoodie Eclipse</p>
+                  <div class="flex items-center justify-between mt-1">
+                    <span class="text-xs text-gray-400">IDR 529K</span>
+                    <button class="text-[11px] px-2 py-1 rounded bg-white/10 hover:bg-white/20">Detail</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="pop card w-56 shrink-0 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                       data-title="T-Shirt Relic" data-price="179" data-date="2025-08-20" data-cat="tee" data-img="images/outfit-tee1.jpg">
+                <div class="relative h-36">
+                  <img src="images/outfit-tee1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+                </div>
+                <div class="p-3">
+                  <p class="text-sm">T-Shirt Relic</p>
+                  <div class="flex items-center justify-between mt-1">
+                    <span class="text-xs text-gray-400">IDR 179K</span>
+                    <button class="text-[11px] px-2 py-1 rounded bg-white/10 hover:bg-white/20">Detail</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="pop card w-56 shrink-0 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                       data-title="Umbrella Drip" data-price="239" data-date="2025-08-18" data-cat="bag" data-img="images/outfit-umbrella.jpg">
+                <div class="relative h-36">
+                  <img src="images/outfit-umbrella.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+                </div>
+                <div class="p-3">
+                  <p class="text-sm">Umbrella Drip</p>
+                  <div class="flex items-center justify-between mt-1">
+                    <span class="text-xs text-gray-400">IDR 239K</span>
+                    <button class="text-[11px] px-2 py-1 rounded bg-white/10 hover:bg-white/20">Detail</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="pop card w-56 shrink-0 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                       data-title="Cap Nebula" data-price="149" data-date="2025-08-12" data-cat="cap" data-img="images/outfit-cap1.jpg">
+                <div class="relative h-36">
+                  <img src="images/outfit-cap1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+                </div>
+                <div class="p-3">
+                  <p class="text-sm">Cap Nebula</p>
+                  <div class="flex items-center justify-between mt-1">
+                    <span class="text-xs text-gray-400">IDR 149K</span>
+                    <button class="text-[11px] px-2 py-1 rounded bg-white/10 hover:bg-white/20">Detail</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- GRID -->
+        <section>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-semibold tracking-wide uppercase text-gray-300">All Apparel</h3>
+            <p id="resultCount" class="text-xs text-gray-400"></p>
+          </div>
+
+          <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- item cards -->
+            <article class="item card rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                     data-title="T-Shirt Eclipse" data-price="199" data-date="2025-08-26" data-cat="tee" data-img="images/outfit-tee2.jpg">
+              <div class="relative h-56">
+                <img src="images/outfit-tee2.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+                <span class="absolute right-2 top-2 text-[10px] italic font-bold text-red-600">NEW</span>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <p class="font-medium">T-Shirt Eclipse</p>
+                  <span class="text-sm text-gray-400">IDR 199K</span>
+                </div>
+                <p class="mt-1 text-xs text-gray-400">Cotton 24s. Print plastisol.</p>
+              </div>
+            </article>
+
+            <article class="item card rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                     data-title="Hoodie Rift" data-price="559" data-date="2025-08-21" data-cat="hoodie" data-img="images/outfit-hoodie2.jpg">
+              <div class="relative h-56">
+                <img src="images/outfit-hoodie2.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <p class="font-medium">Hoodie Rift</p>
+                  <span class="text-sm text-gray-400">IDR 559K</span>
+                </div>
+                <p class="mt-1 text-xs text-gray-400">Fleece 330gsm, oversize cut.</p>
+              </div>
+            </article>
+
+            <article class="item card rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                     data-title="Tote Gravity" data-price="179" data-date="2025-08-10" data-cat="bag" data-img="images/outfit-bag.jpg">
+              <div class="relative h-56">
+                <img src="images/outfit-bag.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <p class="font-medium">Tote Gravity</p>
+                  <span class="text-sm text-gray-400">IDR 179K</span>
+                </div>
+                <p class="mt-1 text-xs text-gray-400">Canvas heavy, print discharge.</p>
+              </div>
+            </article>
+
+            <article class="item card rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                     data-title="Cap Mono" data-price="129" data-date="2025-08-05" data-cat="cap" data-img="images/outfit-cap2.jpg">
+              <div class="relative h-56">
+                <img src="images/profil3.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <p class="font-medium">Cap Mono</p>
+                  <span class="text-sm text-gray-400">IDR 129K</span>
+                </div>
+                <p class="mt-1 text-xs text-gray-400">Nylon ripstop, low profile.</p>
+              </div>
+            </article>
+
+            <article class="item card rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                     data-title="Hoodie Relic" data-price="499" data-date="2025-07-28" data-cat="hoodie" data-img="images/outfit-hoodie3.jpg">
+              <div class="relative h-56">
+                <img src="images/profil4.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <p class="font-medium">Hoodie Relic</p>
+                  <span class="text-sm text-gray-400">IDR 499K</span>
+                </div>
+                <p class="mt-1 text-xs text-gray-400">French terry, drop-shoulder.</p>
+              </div>
+            </article>
+
+            <article class="item card rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden cursor-pointer"
+                     data-title="T-Shirt Void" data-price="189" data-date="2025-07-20" data-cat="tee" data-img="images/outfit-tee3.jpg">
+              <div class="relative h-56">
+                <img src="images/logo2.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <p class="font-medium">T-Shirt Void</p>
+                  <span class="text-sm text-gray-400">IDR 189K</span>
+                </div>
+                <p class="mt-1 text-xs text-gray-400">Cotton combed, soft handfeel.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAIL PANEL -->
+  <div id="detail" class="fixed inset-0 hidden z-50">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="absolute right-0 top-0 h-full w-full sm:w-[520px] bg-[#0b0b10] border-l border-white/10 overflow-y-auto">
+      <div class="p-4 border-b border-white/10 flex items-center justify-between">
+        <p class="text-sm text-gray-300">Product Detail</p>
+        <button id="closeDetail" class="h-8 w-8 grid place-items-center rounded-full bg-white/10 hover:bg-white/20">✕</button>
+      </div>
+      <div id="detailBody" class="p-5 space-y-4">
+        <!-- injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-2 text-center text-gray-500 border-t border-white/10">
+    © 2025 Blackmatter. All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // --- Popular carousel buttons ---
+    const popTrack = document.getElementById('popTrack');
+    document.getElementById('popPrev').addEventListener('click', ()=> popTrack.scrollBy({left:-260, behavior:'smooth'}));
+    document.getElementById('popNext').addEventListener('click', ()=> popTrack.scrollBy({left: 260, behavior:'smooth'}));
+
+    // --- Filtering / Sorting / Search for grid ---
+    const grid = document.getElementById('grid');
+    const cards = [...grid.querySelectorAll('.item')];
+    const cats = [...document.querySelectorAll('.filter-cat')];
+    const priceSort = document.getElementById('priceSort');
+    const searchBox = document.getElementById('searchBox');
+    const resetBtn = document.getElementById('resetBtn');
+    const resultCount = document.getElementById('resultCount');
+
+    cards.forEach((c,i)=> c.dataset.index = i);
+    const priceOf = c => Number(c.dataset.price||0);
+    const dateOf  = c => new Date(c.dataset.date||'1970-01-01');
+    const norm    = v => (v||'').toString().toLowerCase().trim();
+
+    function activeCats(){
+      const v = cats.filter(x=>x.checked).map(x=>x.value);
+      return new Set(v);
+    }
+
+    function apply(){
+      const set = activeCats();
+      const q = norm(searchBox.value);
+      let view = cards.filter(c=>{
+        const okCat = set.size===0 || set.has((c.dataset.cat||'').toLowerCase());
+        if(!okCat) return false;
+        if(!q) return true;
+        return norm(c.dataset.title).includes(q);
+      });
+
+      const mode = priceSort.value;
+      if(mode==='asc') view.sort((a,b)=>priceOf(a)-priceOf(b));
+      else if(mode==='desc') view.sort((a,b)=>priceOf(b)-priceOf(a));
+      else if(mode==='new') view.sort((a,b)=>dateOf(b)-dateOf(a));
+      else view.sort((a,b)=> (a.dataset.index|0)-(b.dataset.index|0));
+
+      cards.forEach(c=>c.classList.add('hidden'));
+      view.forEach(c=>c.classList.remove('hidden'));
+      resultCount.textContent = `${view.length} produk`;
+    }
+
+    cats.forEach(cb=> cb.addEventListener('change', apply));
+    priceSort.addEventListener('change', apply);
+    searchBox.addEventListener('input', apply);
+    resetBtn.addEventListener('click', ()=>{
+      cats.forEach(cb=> cb.checked=false);
+      priceSort.value='featured';
+      searchBox.value='';
+      apply();
+    });
+    apply();
+
+    // --- Detail panel (shared for popular + grid) ---
+    const detail = document.getElementById('detail');
+    const detailBody = document.getElementById('detailBody');
+    document.getElementById('closeDetail').addEventListener('click', ()=> detail.classList.add('hidden'));
+    detail.addEventListener('click', (e)=>{ if(e.target===detail) detail.classList.add('hidden'); });
+
+    function openDetail(data){
+      const {title, price, img, date} = data;
+      detailBody.innerHTML = `
+        <div class="space-y-4">
+          <div class="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-white/[0.04]">
+            <img src="${img}" class="absolute inset-0 w-full h-full object-cover" alt="">
+          </div>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h4 class="text-xl font-semibold">${title}</h4>
+              <p class="text-sm text-gray-400 mt-1">Rilis: ${date}</p>
+            </div>
+            <span class="text-sm text-gray-300">IDR ${price}K</span>
+          </div>
+          <p class="text-sm text-gray-300">Material & Fit</p>
+          <ul class="text-sm text-gray-400 list-disc pl-5">
+            <li>Premium fabric, comfortable for daily wear.</li>
+            <li>Signature Blackmatter graphic with durable ink.</li>
+            <li>Size guide available on request.</li>
+          </ul>
+          <div class="flex gap-2 pt-2">
+            <a href="mailto:blackmatterrrr@gmail.com?subject=Order ${encodeURIComponent(title)}&body=Halo, saya ingin memesan ${encodeURIComponent(title)}"
+               class="px-4 py-2 rounded-lg bg-white text-black text-sm font-semibold hover:opacity-90">Order</a>
+            <button class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm">Add to cart</button>
+          </div>
+        </div>`;
+      detail.classList.remove('hidden');
+    }
+
+    function cardData(el){
+      return {
+        title: el.dataset.title,
+        price: el.dataset.price,
+        img:   el.dataset.img,
+        date:  el.dataset.date
+      };
+    }
+
+    // bind clicks (grid)
+    cards.forEach(c=> c.addEventListener('click', ()=> openDetail(cardData(c))));
+
+    // bind clicks (popular)
+    document.querySelectorAll('.pop.card').forEach(p=>{
+      p.addEventListener('click', ()=> openDetail(cardData(p)));
+    });
+  </script>
+</body>
+</html>

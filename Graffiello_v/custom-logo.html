@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Logo - Blackmatter</title>
+  <link rel="icon" href="images/B.png" type="image/png" sizes="32x32">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-200">
+
+  <!-- NAVBAR SIMPLE -->
+  <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+      <a href="index.html#home" class="font-semibold tracking-widest">
+        <img src="images/logo.png" class="h-9 w-auto" alt="Blackmatter Logo">
+      </a>
+      <a href="index.html#the-archive" class="text-sm hover:text-white">← Back</a>
+    </div>
+  </nav>
+
+  <!-- HERO / HEADER -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="images/Background.jpg" class="w-full h-full object-cover opacity-50" alt="">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 py-14">
+      <h1 class="text-3xl font-extrabold">Custom Logo</h1>
+      <p class="mt-3 text-gray-300 max-w-2xl">Pilih paket logo yang kamu suka. Semua karya bisa dikustom sesuai keinginan.</p>
+    </div>
+  </header>
+
+  <!-- SECTION: FILTER + GRID -->
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-[#0b0b13] to-black"></div>
+    <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px]
+                bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.35)_0%,rgba(124,58,237,0.12)_35%,transparent_60%)]
+                blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-40 -left-40 w-[800px] h-[800px]
+                bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.18)_0%,transparent_60%)]
+                blur-3xl"></div>
+    <div class="pointer-events-none absolute bottom-0 -right-40 w-[700px] h-[700px]
+                bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.14)_0%,transparent_60%)]
+                blur-[80px]"></div>
+
+    <!-- FILTER BAR -->
+    <section class="relative max-w-7xl mx-auto px-4 py-3 border-y border-white/10 bg-black/30 backdrop-blur">
+      <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+        <div class="flex items-center gap-3">
+          <select id="styleSelect" class="bg-black/60 border border-white/10 rounded-lg px-3 py-2">
+            <option value="all">All Styles</option>
+            <option value="metallic">Metallic</option>
+            <option value="modern">Modern</option>
+            <option value="custom">Custom</option>
+          </select>
+
+          <select id="sortSelect" class="bg-black/60 border border-white/10 rounded-lg px-3 py-2">
+            <option value="featured">Featured</option>
+            <option value="termurah">Termurah</option>
+            <option value="termahal">Termahal</option>
+            <option value="terbaru">Terbaru</option>
+          </select>
+        </div>
+
+        <div>
+          <input type="text" id="searchInput" placeholder="Cari item…"
+                 class="bg-black/60 border border-white/10 rounded-lg px-3 py-2 w-full sm:w-64">
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID PRODUK -->
+    <main id="grid" class="relative max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- METALLIC -->
+      <article class="card group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(99,102,241,0.08)] hover:shadow-[0_0_60px_rgba(99,102,241,0.18)] overflow-hidden transition-transform hover:scale-[1.02]"
+        data-title="Metallic" data-category="metallic" data-price="100" data-date="2025-08-20">
+        <span class="badge-new hidden absolute right-2 top-2 z-20 text-[10px] italic font-bold text-red-600">NEW</span>
+        <img src="images/Background.jpg" alt="Metallic" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5 space-y-2">
+          <h3 class="font-semibold text-lg">Metallic</h3>
+          <p class="text-gray-400 text-sm">Format: JPG, PNG, SVG. 1x revisi minor. Estimasi 2–4 hari.</p>
+          <p class="upload-date text-[10px] font-light text-gray-500"></p>
+          <div class="flex items-center justify-between pt-1">
+            <span class="font-bold text-white">IDR 100K</span>
+            <div class="flex gap-2">
+              <button class="orderBtn text-xs px-3 py-2 rounded-md bg-white text-black font-semibold hover:opacity-90" data-product="Metallic" data-price="100">Order</button>
+              <button class="text-xs px-3 py-2 rounded-md bg-white/10 hover:bg-white/20" onclick="openPreview('images/Background.jpg','Metallic')">Preview</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODERN -->
+      <article class="card group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(99,102,241,0.08)] hover:shadow-[0_0_60px_rgba(99,102,241,0.18)] overflow-hidden transition-transform hover:scale-[1.02]"
+        data-title="Modern" data-category="modern" data-price="50" data-date="2025-08-24">
+        <span class="badge-new hidden absolute right-2 top-2 z-20 text-[10px] italic font-bold text-red-600">NEW</span>
+        <img src="images/modern.jpg" alt="Modern" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5 space-y-2">
+          <h3 class="font-semibold text-lg">Modern</h3>
+          <p class="text-gray-400 text-sm">Format: JPG, PNG, SVG. 1x revisi minor. Estimasi 1–3 hari.</p>
+          <p class="upload-date text-[10px] font-light text-gray-500"></p>
+          <div class="flex items-center justify-between pt-1">
+            <span class="font-bold text-white">IDR 50K</span>
+            <div class="flex gap-2">
+              <button class="orderBtn text-xs px-3 py-2 rounded-md bg-white text-black font-semibold hover:opacity-90" data-product="Modern" data-price="50">Order</button>
+              <button class="text-xs px-3 py-2 rounded-md bg-white/10 hover:bg-white/20" onclick="openPreview('images/modern.jpg','Modern')">Preview</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CUSTOM -->
+      <article class="card group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(99,102,241,0.08)] hover:shadow-[0_0_60px_rgba(99,102,241,0.18)] overflow-hidden transition-transform hover:scale-[1.02]"
+        data-title="Custom" data-category="custom" data-price="999" data-date="2025-08-10">
+        <span class="badge-new hidden absolute right-2 top-2 z-20 text-[10px] italic font-bold text-red-600">NEW</span>
+        <img src="images/logo2.jpg" alt="Custom" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5 space-y-2">
+          <h3 class="font-semibold text-lg">Custom</h3>
+          <p class="text-gray-400 text-sm">Format: JPG, PNG, SVG. 1x revisi minor. Estimasi (Adapt).</p>
+          <p class="upload-date text-[10px] font-light text-gray-500"></p>
+          <div class="flex items-center justify-between pt-1">
+            <span class="font-bold text-white">IDR (Adapt)</span>
+            <div class="flex gap-2">
+              <button class="orderBtn text-xs px-3 py-2 rounded-md bg-white text-black font-semibold hover:opacity-90" data-product="Custom" data-price="Adapt">Order</button>
+              <button class="text-xs px-3 py-2 rounded-md bg-white/10 hover:bg-white/20" onclick="openPreview('images/logo2.jpg','Custom')">Preview</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </main>
+  </section>
+
+  <!-- MODAL PREVIEW -->
+  <div id="previewModal" class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-md z-50">
+    <div class="max-w-3xl w-[92%] bg-black/60 border border-white/10 rounded-2xl overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+        <h4 id="previewTitle" class="font-semibold">Preview</h4>
+        <button onclick="closePreview()" class="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20">Tutup</button>
+      </div>
+      <img id="previewImg" src="" alt="" class="w-full max-h-[70vh] object-contain bg-black">
+    </div>
+  </div>
+
+  <!-- MODAL ORDER -->
+  <div id="orderModal" class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-md z-[60]">
+    <div class="max-w-xl w-[92%] bg-black/70 border border-white/10 rounded-2xl overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+        <h4 class="font-semibold">Order</h4>
+        <button id="closeOrder" class="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20">Tutup</button>
+      </div>
+
+      <!-- === FORM YANG DIARAHKAN KE EMAIL & THANKS === -->
+      <form id="orderForm"
+            action="https://formsubmit.co/blackmatterrrr@gmail.com"
+            method="POST" enctype="multipart/form-data"
+            class="p-5 space-y-4">
+        <!-- FormSubmit options -->
+        <input type="hidden" name="_subject"      value="Order Custom Logo — Blackmatter">
+        <input type="hidden" name="_template"     value="table">
+        <input type="hidden" name="_captcha"      value="false">
+        <input type="hidden" name="_next"         value="../thanks.html">
+        <input type="hidden" name="_autoresponse" value="Terima kasih! Pesanan Anda sudah kami terima. Kami akan balas via email secepatnya. — Blackmatter">
+
+        <!-- Produk -->
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Produk</label>
+          <input id="prodInput" name="Produk" readonly class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm text-gray-400 mb-1">Nama</label>
+            <input required name="Nama" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
+          </div>
+          <div>
+            <label class="block text-sm text-gray-400 mb-1">Email</label>
+            <input required type="email" name="Email" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
+          </div>
+        </div>
+
+        <!-- Upload -->
+        <div>
+          <label class="block text-sm text-gray-400 mb-2">Bukti pembayaran / referensi (opsional)</label>
+          <div id="dropzone" class="rounded-xl border-2 border-dashed border-white/10 bg-black/40 p-5 text-center cursor-pointer hover:border-white/30 transition">
+            <p class="text-sm text-gray-400">Seret & letakkan file di sini, atau <span class="underline">pilih file</span></p>
+            <p class="text-xs text-gray-500 mt-1">Maks. 10MB, format: JPG/PNG/WebP/SVG/PDF</p>
+            <input id="fileInput" type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.svg,.pdf" class="sr-only">
+          </div>
+
+          <div id="fileInfo" class="hidden mt-3 rounded-lg bg-black/40 border border-white/10 p-3 text-sm">
+            <div class="flex items-center gap-3">
+              <img id="fileThumb" class="w-12 h-12 object-cover rounded-md hidden" alt="">
+              <div class="min-w-0">
+                <p id="fileName" class="truncate text-gray-200"></p>
+                <p id="fileSize" class="text-gray-500 text-xs"></p>
+              </div>
+              <button type="button" id="clearFile" class="ml-auto text-xs px-2 py-1 rounded-md bg-white/10 hover:bg-white/20">Hapus</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Catatan</label>
+          <textarea name="Catatan" rows="4" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white" placeholder="Tulis detail keinginan logo..."></textarea>
+        </div>
+
+        <button class="w-full bg-white text-black font-semibold py-3 rounded-xl hover:opacity-90">Kirim</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-2 text-center text-gray-500 border-t border-white/10">
+    © 2025 Blackmatter. All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    /* -------- Preview modal -------- */
+    const modal = document.getElementById('previewModal');
+    const imgEl = document.getElementById('previewImg');
+    const titleEl = document.getElementById('previewTitle');
+    function openPreview(src, title){ imgEl.src = src; titleEl.textContent = title || 'Preview'; modal.classList.remove('hidden'); modal.classList.add('flex'); }
+    function closePreview(){ modal.classList.add('hidden'); modal.classList.remove('flex'); imgEl.src = ''; }
+    modal?.addEventListener('click', (e)=>{ if(e.target === modal) closePreview(); });
+
+    /* -------- Filter / Sort / Search + Tanggal & NEW -------- */
+    (() => {
+      const grid        = document.getElementById('grid');
+      const cards       = [...grid.querySelectorAll('article.card')];
+      const styleSelect = document.getElementById('styleSelect');
+      const sortSelect  = document.getElementById('sortSelect');
+      const searchInput = document.getElementById('searchInput');
+
+      cards.forEach((c, i) => c.dataset.index = i);
+
+      function dformat(iso){
+        const d = new Date(iso); if (isNaN(d)) return '';
+        const dd = String(d.getDate()).padStart(2,'0');
+        const mm = String(d.getMonth()+1).padStart(2,'0');
+        const yy = d.getFullYear();
+        return `${dd}/${mm}/${yy}`;
+      }
+      cards.forEach(c=>{
+        const el = c.querySelector('.upload-date');
+        if(el && c.dataset.date) el.textContent = dformat(c.dataset.date);
+      });
+
+      const priceOf = c => Number(c.dataset.price || 0);
+      const dateOf  = c => new Date(c.dataset.date || '1970-01-01');
+      const norm    = v => (v||'').toString().toLowerCase().trim();
+
+      function applyFilter(list){
+        const q   = norm(searchInput.value);
+        const cat = (styleSelect?.value || 'all').toLowerCase();
+        return list.filter(c=>{
+          const okCat = (cat==='all') || (norm(c.dataset.category)===cat);
+          if(!okCat) return false;
+          if(!q) return true;
+          const t = norm(c.dataset.title);
+          const a = norm(c.querySelector('img')?.alt);
+          return t.includes(q) || a.includes(q);
+        });
+      }
+
+      function render(){
+        cards.forEach(c => c.querySelector('.badge-new')?.classList.add('hidden'));
+        let view = applyFilter(cards);
+        const mode = (sortSelect?.value || 'featured').toLowerCase();
+
+        if(mode==='termurah'){
+          view.sort((a,b)=> priceOf(a)-priceOf(b));
+        } else if(mode==='termahal'){
+          view.sort((a,b)=> priceOf(b)-priceOf(a));
+        } else if(mode==='terbaru'){
+          view.sort((a,b)=> dateOf(b)-dateOf(a));
+          const top3 = view.slice(0,3);
+          cards.forEach(c=> c.style.display='none');
+          top3.forEach(c=>{ c.style.display=''; c.querySelector('.badge-new')?.classList.remove('hidden'); });
+          top3.forEach(c=> grid.appendChild(c));
+          return;
+        } else {
+          view.sort((a,b)=> (a.dataset.index|0)-(b.dataset.index|0));
+        }
+
+        cards.forEach(c=> c.style.display='none');
+        view.forEach(c=> { c.style.display=''; grid.appendChild(c); });
+      }
+
+      styleSelect?.addEventListener('change', render);
+      sortSelect ?.addEventListener('change', render);
+      searchInput?.addEventListener('input',  render);
+
+      searchInput?.addEventListener('keydown', (e)=>{
+        if(e.key==='Enter'){
+          render();
+          const first = [...grid.querySelectorAll('article.card')].find(c=>c.style.display!=='none');
+          if(first) first.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+      });
+
+      render();
+    })();
+
+    /* -------- Order Modal + Drag & Drop -------- */
+    const orderModal = document.getElementById('orderModal');
+    const closeOrder = document.getElementById('closeOrder');
+    const prodInput  = document.getElementById('prodInput');
+
+    document.querySelectorAll('.orderBtn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const name = btn.dataset.product || 'Custom Logo';
+        prodInput.value = name;
+        orderModal.classList.remove('hidden');
+        orderModal.classList.add('flex');
+      });
+    });
+
+    closeOrder.addEventListener('click', ()=>{
+      orderModal.classList.add('hidden');
+      orderModal.classList.remove('flex');
+    });
+    orderModal.addEventListener('click', (e)=>{ if(e.target === orderModal){ closeOrder.click(); } });
+
+    const dz = document.getElementById('dropzone');
+    const input = document.getElementById('fileInput');
+    const info = document.getElementById('fileInfo');
+    const fName = document.getElementById('fileName');
+    const fSize = document.getElementById('fileSize');
+    const fThumb = document.getElementById('fileThumb');
+    const clearBtn = document.getElementById('clearFile');
+
+    dz.addEventListener('click', ()=> input.click());
+    ['dragenter','dragover'].forEach(ev=> dz.addEventListener(ev, e=>{ e.preventDefault(); dz.classList.add('border-white/30'); }));
+    ['dragleave','drop'].forEach(ev=> dz.addEventListener(ev, e=>{ e.preventDefault(); dz.classList.remove('border-white/30'); }));
+
+    dz.addEventListener('drop', e=>{
+      const file = e.dataTransfer.files?.[0]; if(!file) return;
+      setFile(file);
+    });
+    input.addEventListener('change', ()=>{
+      const file = input.files?.[0]; if(!file) return;
+      setFile(file);
+    });
+    clearBtn.addEventListener('click', ()=>{
+      const dt = new DataTransfer(); input.files = dt.files;
+      info.classList.add('hidden'); fThumb.src=''; fThumb.classList.add('hidden');
+    });
+
+    function setFile(file){
+      const ok = ['image/jpeg','image/png','image/webp','image/svg+xml','application/pdf'];
+      if(!ok.includes(file.type)) { alert('Format tidak didukung. Gunakan JPG/PNG/WebP/SVG/PDF.'); return; }
+      if(file.size > 10*1024*1024) { alert('Maks 10MB.'); return; }
+
+      const dt = new DataTransfer(); dt.items.add(file); input.files = dt.files;
+
+      fName.textContent = file.name;
+      fSize.textContent = (file.size/1024/1024).toFixed(2)+' MB';
+      if(file.type.startsWith('image/') && file.type !== 'image/svg+xml'){
+        fThumb.src = URL.createObjectURL(file);
+        fThumb.classList.remove('hidden');
+      } else {
+        fThumb.classList.add('hidden');
+      }
+      info.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

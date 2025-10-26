@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackmatter</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="../images/B.png" type="image/png" sizes="32x32">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-200 font-sans">
+
+  <!-- NAVBAR: desktop + mobile (blur kaca) -->
+  <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center">
+        <img src="../images/logo.png" class="h-9 w-auto" alt="Blackmatter Logo">
+      </a>
+
+      <!-- Menu Desktop -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#home" class="hover:text-white">Home</a></li>
+         <li><a href="#profile" class="hover:text-white">Profile</a></li>
+        <li><a href="#the-archive" class="hover:text-white">The Archive</a></li>
+        <li><a href="#collab" class="hover:text-white">Collab</a></li>
+        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+      </ul>
+
+      <!-- Tombol Mobile -->
+      <button id="menuBtn"
+        class="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30"
+        aria-label="Toggle navigation" aria-expanded="false">
+        <!-- icon burger -->
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <!-- icon close -->
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Panel Menu Mobile -->
+    <div id="menuPanel" class="md:hidden hidden">
+      <div class="px-4 sm:px-6 pb-4">
+        <ul class="space-y-2 text-sm font-medium bg-black/60 backdrop-blur-xl rounded-xl p-3 border border-white/10">
+          <li><a href="#home" class="block px-3 py-2 rounded-lg hover:bg-white/10">Home</a></li>
+          <li><a href="#profile" class="block px-3 py-2 rounded-lg hover:bg-white/10">Profile</a></li>
+          <li><a href="#the-archive" class="block px-3 py-2 rounded-lg hover:bg-white/10">The Archive</a></li>
+          <li><a href="#collab" class="block px-3 py-2 rounded-lg hover:bg-white/10">Collab</a></li>
+          <li><a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-white/10">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="relative min-h-[100svh] flex items-center px-4 sm:px-8 md:px-20 pt-24">
+    <img src="../images/Background.jpg" alt="Blackmatter Hero"
+         class="absolute inset-0 w-full h-full object-cover opacity-30" />
+    <div class="relative z-10 max-w-2xl">
+      <h2 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg">
+        The void <br class="hidden sm:block"> speaks through my art
+      </h2>
+      <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+        Blackmatter — ruang lahirnya logo, editing, dan seni visual untuk generasi modern.
+        Profil kreatif, karya orisinal, dan jasa desain premium tersedia di sini.
+      </p>
+      <a href="#collab"
+         class="inline-block bg-gradient-to-r from-gray-200 to-white text-black font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
+        Lihat Kolaborasi
+      </a>
+    </div>
+  </section>
+
+<!-- ====================== PROFILE (HERO + ABOUT + SERVICES PREVIEW) ====================== -->
+<section id="profile" class="relative bg-black text-gray-300">
+  <!-- METALLIC BLUR BACKDROP -->
+  <div class="pointer-events-none absolute inset-0">
+    <!-- soft radial glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(1100px_520px_at_50%_-8%,rgba(255,255,255,0.12),transparent_60%)]"></div>
+    <!-- metallic sheen sweep -->
+    <div class="absolute inset-0 blur-2xl opacity-70 bg-[conic-gradient(from_210deg_at_60%_40%,rgba(255,255,255,0.06),transparent_20%,rgba(255,255,255,0.10),transparent_60%)]"></div>
+  </div>
+
+  <!-- HERO -->
+  <div class="relative max-w-7xl mx-auto px-6 pt-16 pb-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <!-- Left: headline (glass) -->
+    <div class="rounded-3xl bg-white/[0.04] backdrop-blur-xl border border-white/10 p-6">
+      <p class="uppercase tracking-widest text-[11px] text-gray-300/90">Hi There!</p>
+      <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold text-white">
+        I am <span class="text-white/90">Developer</span>
+      </h1>
+      <p class="mt-4 text-gray-400 text-lg">I make the complex simple.</p>
+
+      <a href="#contact"
+         class="inline-block mt-6 px-5 py-2 rounded-md bg-white text-black font-semibold hover:bg-white/90 transition">
+        Contact Me
+      </a>
+
+      <!-- info row -->
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="rounded-xl bg-[#0b0f14] border border-white/10 p-4">
+          <p class="text-xs text-gray-500 uppercase">Email</p>
+          <p class="text-sm text-white truncate">blackmatterrrr@gmail.com</p>
+        </div>
+        <div class="rounded-xl bg-[#0b0f14] border border-white/10 p-4">
+          <p class="text-xs text-gray-500 uppercase">Phone</p>
+          <p class="text-sm text-white">+62-8xx-xxxx-xxxx</p>
+        </div>
+        <div class="rounded-xl bg-[#0b0f14] border border-white/10 p-4">
+          <p class="text-xs text-gray-500 uppercase">Location</p>
+          <p class="text-sm text-white">Yogyakarta, ID</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: hero image (glass) -->
+    <div class="relative rounded-3xl overflow-hidden bg-white/[0.04] backdrop-blur-xl border border-white/10">
+      <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-white/10 to-transparent blur-2xl"></div>
+      <img src="../images/Background.jpg"
+           alt="Profile"
+           class="relative w-full h-[420px] object-cover" />
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="relative border-t border-white/10"></div>
+  <div class="relative max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[380px,1fr] gap-10">
+    <!-- About image (glass) -->
+    <div class="rounded-3xl overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-xl">
+      <img src="../images/itsgal.jpg" alt="About" class="w-full h-full object-cover">
+    </div>
+
+    <!-- About text -->
+    <div>
+      <p class="text-sm tracking-widest text-gray-300/90 uppercase">Who am I?</p>
+      <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">
+        I'm Galih, a visual Logo Designer and Web Developer
+      </h3>
+      <p class="mt-4 text-gray-400 leading-relaxed">
+        Sejak kecil tertarik pada misteri alam semesta & estetika metal–modern.
+        Saya membangun <span class="text-white font-medium">BLACKMATTER</span> sebagai ruang untuk
+        menuangkan ide menjadi identitas visual yang tajam dan bermakna.
+      </p>
+
+      <!-- facts -->
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-xl bg-white/[0.04] backdrop-blur-xl border border-white/10 p-4">
+          <div class="flex items-center justify-between"><span class="text-gray-500">Name</span><span class="text-white">Galih</span></div>
+          <div class="flex items-center justify-between mt-2"><span class="text-gray-500">Age</span><span class="text-white">25</span></div>
+        </div>
+        <div class="rounded-xl bg-white/[0.04] backdrop-blur-xl border border-white/10 p-4">
+          <div class="flex items-center justify-between"><span class="text-gray-500">From</span><span class="text-white">Yogyakarta, ID</span></div>
+          <div class="flex items-center justify-between mt-2"><span class="text-gray-500">Email</span><span class="text-white">blackmatterrrr@gmail.com</span></div>
+        </div>
+      </div>
+
+      <a href="YOUR_CV_LINK.pdf" download
+         class="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-md bg-white text-black font-semibold hover:bg-white/90 transition">
+        Download CV
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- THE ARCHIVE -->
+  <section id="the-archive" class="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-black to-gray-900">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 tracking-wide">
+      The Archive
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+      <!-- CARD: Custom Logo -->
+      <a href="custom-logo.html"
+         class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+        <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
+        <div class="relative p-4">
+          <div class="overflow-hidden rounded-xl">
+            <img src="../images/Background.jpg" alt="Custom Logo"
+                 class="w-full h-48 object-cover scale-100 group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="mt-4 text-center font-medium text-gray-200">Custom Logo</p>
+        </div>
+        <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
+      </a>
+
+      <!-- CARD: Accessories (contoh) -->
+      <a href="accesories.html"
+         class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+        <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
+        <div class="relative p-4">
+          <div class="overflow-hidden rounded-xl">
+            <img src="../images/logo.png" alt="Accessories"
+                 class="w-full h-48 object-cover scale-100 group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="mt-4 text-center font-medium text-gray-200">Accessories</p>
+        </div>
+        <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
+      </a>
+
+      <!-- CARD: Outfit (contoh) -->
+      <a href="outfit.html"
+         class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+        <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
+        <div class="relative p-4">
+          <div class="overflow-hidden rounded-xl">
+            <img src="../images/logo2.jpg" alt="Outfit"
+                 class="w-full h-48 object-cover scale-100 group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="mt-4 text-center font-medium text-gray-200">Outfit</p>
+        </div>
+        <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ====================== COLLAB (GANTI ORDER) ====================== -->
+  <section id="collab" class="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12">
+    <!-- background glow -->
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-[#0b0b13] to-black"></div>
+    <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px]
+                bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.25)_0%,rgba(59,130,246,0.12)_45%,transparent_70%)]
+                blur-3xl"></div>
+
+    <div class="relative max-w-6xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center tracking-wide">
+      <span class="text-white">BTR</span> × <span class="text-white">갈</span>
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Left: Blackmatter card -->
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl overflow-hidden">
+          <div class="relative h-56">
+            <img src="../images/Background.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80" alt="Blackmatter">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-extrabold text-white">Blackmatter (BTR)</h3>
+            <p class="mt-2 text-sm text-gray-400">Void aesthetic, glassmorphism, neon glow. Cocok untuk brand yang ingin nuansa misterius & modern.</p>
+            <div class="mt-4 flex gap-3">
+              <a id="collabGoDark"
+                 class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm cursor-pointer">Explore BTR</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: graffiello_v card -->
+        <div class="rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl overflow-hidden">
+          <div class="relative h-56">
+            <!-- jika ada mock putih khusus, ganti gambar ini -->
+            <img src="../images/gal.jpg" class="absolute inset-0 w-full h-full object-contain bg-white" alt="graffiello_v">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-extrabold text-white">graffiello_v (갈)</h3>
+            <p class="mt-2 text-sm text-gray-400">Clean grid, high contrast, airy spacing. Cocok untuk brand yang ingin tampil rapi & presisi.</p>
+            <div class="mt-4 flex gap-3">
+              <a id="collabGoWhite"
+                 class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm cursor-pointer">Explore 갈</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Split preview mini -->
+      <div class="mt-6 rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-5">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-xl overflow-hidden border border-white/10 bg-white/[0.03]">
+            <img src="../images/foto-profile-hero.jpg" class="w-full h-40 object-cover" alt="Black preview">
+          </div>
+          <div class="rounded-xl overflow-hidden border border-white/10 bg-white">
+            <img src="../images/logo2.jpg" class="w-full h-40 object-cover" alt="White preview">
+          </div>
+        </div>
+        <p class="mt-3 text-xs text-gray-400 text-center">
+          Dua persona visual — pilih mode di atas untuk masuk ke versi masing-masing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-6 bg-gradient-to-b from-gray-900 to-black text-center">
+    <h2 class="text-2xl font-bold mb-2">Contact</h2>
+    <p class="text-gray-400 mb-6">Temukan saya di platform berikut:</p>
+
+    <div class="flex justify-center gap-10">
+      <a href="https://www.instagram.com/blackmttr?igsh=ODdpbHIxY3dkbWlh" target="_blank" rel="noopener noreferrer"
+         class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
+        <img src="../images/instagram.png" alt="Instagram" class="h-12 w-12 object-contain">
+        <span class="text-white font-normal tracking-wide">@blackmttr</span>
+      </a>
+
+      <a href="https://www.tiktok.com/@_itsgal?_t=ZS-8z9YayUtc37&_r=1" target="_blank" rel="noopener noreferrer"
+         class="group flex flex-col items-center gap-1 hover:opacity-80 transition">
+        <img src="../images/tiktok.png" alt="TikTok" class="h-12 w-12 object-contain mx-auto">
+        <span class="text-white font-normal tracking-wide">@_itsgal</span>
+      </a>
+
+      <a href="https://www.behance.net/g632" target="_blank" rel="noopener noreferrer"
+         class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
+        <img src="../images/behance.png" alt="Behance" class="h-12 w-12 object-contain">
+        <span class="text-white font-normal tracking-wide">/g632</span>
+      </a>
+    </div>
+  </section>
+<!-- ====================== SPONSORS ====================== -->
+<section id="sponsors" class="relative bg-black">
+  <div class="relative max-w-7xl mx-auto px-4 py-12 sm:py-16">
+    <div class="text-center mb-8">
+      <p class="text-xs tracking-[0.2em] text-gray-400 uppercase">Trusted by</p>
+      <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Our Sponsors & Partners</h3>
+    </div>
+
+    <!-- GRID: TANPA BACKGROUND/BORDER, LOGO UKURAN SEDANG -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 sm:gap-y-12 gap-x-6 sm:gap-x-10 place-items-center">
+      <a href="https://www.instagram.com/cuanity.co?igsh=MWI0Mjk2cHo0eGdjbw==/sponsor1" target="_blank" rel="noopener" class="group">
+        <img src="../images/cuanity.png"
+             onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';"
+             alt="Sponsor 1"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor2" target="_blank" rel="noopener" class="group">
+        <img src="../images/whoimmal.png"
+             alt="Sponsor 2"
+             class="h-10 sm:h-7 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor3" target="_blank" rel="noopener" class="group">
+        <img src="../images/sponsors/logo-3.png"
+             alt="Sponsor 3"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor4" target="_blank" rel="noopener" class="group">
+        <img src="../images/sponsors/logo-4.png"
+             alt="Sponsor 4"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor5" target="_blank" rel="noopener" class="group">
+        <img src="../images/sponsors/logo-5.png"
+             alt="Sponsor 5"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+    </div>
+
+    <!-- MARQUEE (desktop) TANPA BACKGROUND JUGA -->
+    <div class="mt-12 hidden md:block">
+      <div class="relative overflow-hidden">
+        <div class="marquee flex items-center gap-16 p-2">
+          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/whoimmal.png" alt="Sponsor 2" class="h-7 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+
+          <!-- duplikasi untuk loop mulus -->
+          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-2.png" alt="Sponsor 2" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <style>
+  @keyframes sponsors-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  #sponsors .marquee {
+    width: 200%;
+    display: flex;
+    animation: sponsors-marquee 25s linear infinite;
+  }
+
+  /* saat hover, animasi berhenti sementara */
+  #sponsors .marquee:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+
+  <!-- FOOTER -->
+  <footer class="py-2 text-center bg-black border-t border-gray-800">
+    <p class="text-gray-500 text-sm">© 2025 Blackmatter. All rights reserved.</p>
+  </footer>
+
+  <!-- JS: toggle menu mobile + redirect collab -->
+  <script>
+    // Menu mobile
+    const btn = document.getElementById('menuBtn');
+    const panel = document.getElementById('menuPanel');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    btn.addEventListener('click', () => {
+      const isHidden = panel.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    panel.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (!panel.classList.contains('hidden')) {
+          panel.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+    });
+
+    // Redirect Collab buttons
+    const DARK_URL  = 'index.html#profile';       // tetap di Blackmatter
+    const WHITE_URL = 'graffiello_v/index.html';  // ganti ke URL graffiello_v yang sebenarnya
+
+    document.getElementById('collabGoDark') ?.addEventListener('click', ()=> window.location.href = DARK_URL);
+    document.getElementById('collabGoWhite')?.addEventListener('click', ()=> window.location.href = WHITE_URL);
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* ====== Efek cahaya HANYA di area logo ====== */
+/* semua efek dibatasi oleh mask logo_hd.png (bukan seluruh layar) */
+.km-logo{
+  position:absolute; inset:0; pointer-events:none;
+  /* pakai gambar logo sebagai MASK */
+  -webkit-mask-image: url('images/logo_hd.png');
+  mask-image: url('images/logo_hd.png');
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  /* sedikit turun agar pas di komposisi hero kamu */
+  -webkit-mask-position: center 46%;  mask-position: center 46%;
+  -webkit-mask-size: contain;         mask-size: contain;
+  mask-mode: luminance;
+  display:block;
+}
+
+/* SUNBRUSH / flare elegan di ujung kiri & kanan logo (putih saja) */
+.km-logo::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(110px 64px at 21% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%),
+    radial-gradient(110px 64px at 79% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%);
+  mix-blend-mode: screen;
+  filter: contrast(1.06) saturate(1.05);
+  opacity:.95;
+}
+
+/* Sweep highlight putih tajam melintas DI DALAM logo (tanpa blur) */
+@keyframes km-logo-sweep {
+  0%   { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
+  10%  { opacity:.95; }
+  50%  { transform: translateX(120%)  skewX(-10deg); opacity: 0; }
+  100% { opacity:0; }
+}
+.km-logo::after{
+  content:""; position:absolute; 
+  /* tinggi garis di tengah logo, tidak menyentuh teks hero */
+  top:30%; bottom:32%;
+  left:-22%; width:18%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #ffffff 46%,
+    #ffffff 54%,
+    transparent 100%);
+  mix-blend-mode: screen;
+  transform: skewX(-10deg);
+  animation: km-logo-sweep 7.2s ease-in-out infinite;
+}
+
+/* (opsional) sedikit penyesuaian untuk layar kecil */
+@media (max-width:640px){
+  .km-logo::after{
+    top:34%; bottom:36%;
+    left:-28%; width:22%;
+  }
+}
