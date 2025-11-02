@@ -1,441 +1,306 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blackmatter</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="../images/B.png" type="image/png" sizes="32x32">
-
-  <!-- Tailwind -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gal — Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="color-scheme" content="light">
+  <style>
+    /* custom */
+    .glass-card { background: rgba(255,255,255,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .soft-cloud-bg {
+      background-image: url('./images/clouds-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.95) contrast(.95);
+    }
+    .rounded-hero { border-radius: 20px; box-shadow: 0 20px 50px rgba(10,10,20,0.25); }
+    .chip { background: rgba(255,255,255,0.85); border-radius: 14px; padding: 8px 12px; box-shadow: 0 6px 18px rgba(12,15,25,.06); }
+  </style>
 </head>
-<body class="bg-black text-gray-200 font-sans">
+<body class="antialiased text-slate-900 font-sans soft-cloud-bg">
 
-  <!-- NAVBAR: desktop + mobile (blur kaca) -->
-  <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#home" class="flex items-center">
-        <img src="../images/logo.png" class="h-9 w-auto" alt="Blackmatter Logo">
-      </a>
-
-      <!-- Menu Desktop -->
-      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <li><a href="#home" class="hover:text-white">Home</a></li>
-         <li><a href="#profile" class="hover:text-white">Profile</a></li>
-        <li><a href="#the-archive" class="hover:text-white">The Archive</a></li>
-        <li><a href="#collab" class="hover:text-white">Collab</a></li>
-        <li><a href="#contact" class="hover:text-white">Contact</a></li>
-      </ul>
-
-      <!-- Tombol Mobile -->
-      <button id="menuBtn"
-        class="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30"
-        aria-label="Toggle navigation" aria-expanded="false">
-        <!-- icon burger -->
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <!-- icon close -->
-        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Panel Menu Mobile -->
-    <div id="menuPanel" class="md:hidden hidden">
-      <div class="px-4 sm:px-6 pb-4">
-        <ul class="space-y-2 text-sm font-medium bg-black/60 backdrop-blur-xl rounded-xl p-3 border border-white/10">
-          <li><a href="#home" class="block px-3 py-2 rounded-lg hover:bg-white/10">Home</a></li>
-          <li><a href="#profile" class="block px-3 py-2 rounded-lg hover:bg-white/10">Profile</a></li>
-          <li><a href="#the-archive" class="block px-3 py-2 rounded-lg hover:bg-white/10">The Archive</a></li>
-          <li><a href="#collab" class="block px-3 py-2 rounded-lg hover:bg-white/10">Collab</a></li>
-          <li><a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-white/10">Contact</a></li>
-        </ul>
+  <!-- NAV -->
+  <header class="sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center font-bold text-slate-800">G</div>
+        <span class="font-semibold text-slate-800">Gal</span>
+      </div>
+      <nav class="hidden md:flex gap-6 items-center text-sm text-slate-700">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#why" class="hover:underline">Kenapa</a>
+        <a href="#works" class="hover:underline">Works</a>
+        <a href="#contact" class="px-4 py-2 border rounded-full bg-white/90">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button class="px-3 py-2 rounded-md bg-white/90">Menu</button>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="home" class="relative min-h-[100svh] flex items-center px-4 sm:px-8 md:px-20 pt-24">
-    <img src="../images/Background.jpg" alt="Blackmatter Hero"
-         class="absolute inset-0 w-full h-full object-cover opacity-30" />
-    <div class="relative z-10 max-w-2xl">
-      <h2 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg">
-        The void <br class="hidden sm:block"> speaks through my art
-      </h2>
-      <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
-        Blackmatter — ruang lahirnya logo, editing, dan seni visual untuk generasi modern.
-        Profil kreatif, karya orisinal, dan jasa desain premium tersedia di sini.
-      </p>
-      <a href="#collab"
-         class="inline-block bg-gradient-to-r from-gray-200 to-white text-black font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
-        Lihat Kolaborasi
-      </a>
-    </div>
-  </section>
+  <main class="pb-20">
 
-<!-- ====================== PROFILE (HERO + ABOUT + SERVICES PREVIEW) ====================== -->
-<section id="profile" class="relative bg-black text-gray-300">
-  <!-- METALLIC BLUR BACKDROP -->
-  <div class="pointer-events-none absolute inset-0">
-    <!-- soft radial glow -->
-    <div class="absolute inset-0 bg-[radial-gradient(1100px_520px_at_50%_-8%,rgba(255,255,255,0.12),transparent_60%)]"></div>
-    <!-- metallic sheen sweep -->
-    <div class="absolute inset-0 blur-2xl opacity-70 bg-[conic-gradient(from_210deg_at_60%_40%,rgba(255,255,255,0.06),transparent_20%,rgba(255,255,255,0.10),transparent_60%)]"></div>
-  </div>
-
-  <!-- HERO -->
-  <div class="relative max-w-7xl mx-auto px-6 pt-16 pb-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-    <!-- Left: headline (glass) -->
-    <div class="rounded-3xl bg-white/[0.04] backdrop-blur-xl border border-white/10 p-6">
-      <p class="uppercase tracking-widest text-[11px] text-gray-300/90">Hi There!</p>
-      <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold text-white">
-        I am <span class="text-white/90">Developer</span>
-      </h1>
-      <p class="mt-4 text-gray-400 text-lg">I make the complex simple.</p>
-
-      <a href="#contact"
-         class="inline-block mt-6 px-5 py-2 rounded-md bg-white text-black font-semibold hover:bg-white/90 transition">
-        Contact Me
-      </a>
-
-      <!-- info row -->
-      <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="rounded-xl bg-[#0b0f14] border border-white/10 p-4">
-          <p class="text-xs text-gray-500 uppercase">Email</p>
-          <p class="text-sm text-white truncate">blackmatterrrr@gmail.com</p>
-        </div>
-        <div class="rounded-xl bg-[#0b0f14] border border-white/10 p-4">
-          <p class="text-xs text-gray-500 uppercase">Phone</p>
-          <p class="text-sm text-white">+62-8xx-xxxx-xxxx</p>
-        </div>
-        <div class="rounded-xl bg-[#0b0f14] border border-white/10 p-4">
-          <p class="text-xs text-gray-500 uppercase">Location</p>
-          <p class="text-sm text-white">Yogyakarta, ID</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: hero image (glass) -->
-    <div class="relative rounded-3xl overflow-hidden bg-white/[0.04] backdrop-blur-xl border border-white/10">
-      <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-white/10 to-transparent blur-2xl"></div>
-      <img src="../images/Background.jpg"
-           alt="Profile"
-           class="relative w-full h-[420px] object-cover" />
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <div class="relative border-t border-white/10"></div>
-  <div class="relative max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[380px,1fr] gap-10">
-    <!-- About image (glass) -->
-    <div class="rounded-3xl overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-xl">
-      <img src="../images/itsgal.jpg" alt="About" class="w-full h-full object-cover">
-    </div>
-
-    <!-- About text -->
-    <div>
-      <p class="text-sm tracking-widest text-gray-300/90 uppercase">Who am I?</p>
-      <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">
-        I'm Galih, a visual Logo Designer and Web Developer
-      </h3>
-      <p class="mt-4 text-gray-400 leading-relaxed">
-        Sejak kecil tertarik pada misteri alam semesta & estetika metal–modern.
-        Saya membangun <span class="text-white font-medium">BLACKMATTER</span> sebagai ruang untuk
-        menuangkan ide menjadi identitas visual yang tajam dan bermakna.
-      </p>
-
-      <!-- facts -->
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-        <div class="rounded-xl bg-white/[0.04] backdrop-blur-xl border border-white/10 p-4">
-          <div class="flex items-center justify-between"><span class="text-gray-500">Name</span><span class="text-white">Galih</span></div>
-          <div class="flex items-center justify-between mt-2"><span class="text-gray-500">Age</span><span class="text-white">25</span></div>
-        </div>
-        <div class="rounded-xl bg-white/[0.04] backdrop-blur-xl border border-white/10 p-4">
-          <div class="flex items-center justify-between"><span class="text-gray-500">From</span><span class="text-white">Yogyakarta, ID</span></div>
-          <div class="flex items-center justify-between mt-2"><span class="text-gray-500">Email</span><span class="text-white">blackmatterrrr@gmail.com</span></div>
-        </div>
-      </div>
-
-      <a href="YOUR_CV_LINK.pdf" download
-         class="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-md bg-white text-black font-semibold hover:bg-white/90 transition">
-        Download CV
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-  <!-- THE ARCHIVE -->
-  <section id="the-archive" class="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-black to-gray-900">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 tracking-wide">
-      The Archive
-    </h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-      <!-- CARD: Custom Logo -->
-      <a href="custom-logo.html"
-         class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-        <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
-        <div class="relative p-4">
-          <div class="overflow-hidden rounded-xl">
-            <img src="../images/Background.jpg" alt="Custom Logo"
-                 class="w-full h-48 object-cover scale-100 group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <p class="mt-4 text-center font-medium text-gray-200">Custom Logo</p>
-        </div>
-        <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
-      </a>
-
-      <!-- CARD: Accessories (contoh) -->
-      <a href="accesories.html"
-         class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-        <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
-        <div class="relative p-4">
-          <div class="overflow-hidden rounded-xl">
-            <img src="../images/logo.png" alt="Accessories"
-                 class="w-full h-48 object-cover scale-100 group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <p class="mt-4 text-center font-medium text-gray-200">Accessories</p>
-        </div>
-        <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
-      </a>
-
-      <!-- CARD: Outfit (contoh) -->
-      <a href="outfit.html"
-         class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-        <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
-        <div class="relative p-4">
-          <div class="overflow-hidden rounded-xl">
-            <img src="../images/logo2.jpg" alt="Outfit"
-                 class="w-full h-48 object-cover scale-100 group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <p class="mt-4 text-center font-medium text-gray-200">Outfit</p>
-        </div>
-        <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ====================== COLLAB (GANTI ORDER) ====================== -->
-  <section id="collab" class="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12">
-    <!-- background glow -->
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-[#0b0b13] to-black"></div>
-    <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px]
-                bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.25)_0%,rgba(59,130,246,0.12)_45%,transparent_70%)]
-                blur-3xl"></div>
-
-    <div class="relative max-w-6xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center tracking-wide">
-      <span class="text-white">BTR</span> × <span class="text-white">갈</span>
-      </h2>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Left: Blackmatter card -->
-        <div class="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl overflow-hidden">
-          <div class="relative h-56">
-            <img src="../images/Background.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80" alt="Blackmatter">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-extrabold text-white">Blackmatter (BTR)</h3>
-            <p class="mt-2 text-sm text-gray-400">Void aesthetic, glassmorphism, neon glow. Cocok untuk brand yang ingin nuansa misterius & modern.</p>
-            <div class="mt-4 flex gap-3">
-              <a id="collabGoDark"
-                 class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm cursor-pointer">Explore BTR</a>
+    <!-- HERO rounded card -->
+    <section id="home" class="py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-hero overflow-hidden relative glass-card">
+          <!-- hero image left -->
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="relative min-h-[360px]">
+              <img src="./images/hero.jpg" alt="Hero" class="w-full h-full object-cover">
+              <!-- overlay gradient -->
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/70"></div>
             </div>
-          </div>
-        </div>
 
-        <!-- Right: graffiello_v card -->
-        <div class="rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl overflow-hidden">
-          <div class="relative h-56">
-            <!-- jika ada mock putih khusus, ganti gambar ini -->
-            <img src="../images/gal.jpg" class="absolute inset-0 w-full h-full object-contain bg-white" alt="graffiello_v">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-extrabold text-white">graffiello_v (갈)</h3>
-            <p class="mt-2 text-sm text-gray-400">Clean grid, high contrast, airy spacing. Cocok untuk brand yang ingin tampil rapi & presisi.</p>
-            <div class="mt-4 flex gap-3">
-              <a id="collabGoWhite"
-                 class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm cursor-pointer">Explore 갈</a>
+            <div class="p-10 lg:p-16 flex flex-col justify-center">
+              <div class="mb-6">
+                <span class="text-xs uppercase text-slate-500 tracking-widest">Gal Portfolio</span>
+                <h1 class="mt-4 text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">GALSTRONAUT — Portfolio</h1>
+                <p class="mt-4 text-slate-700 max-w-xl">
+                  A curated collection: graphic works, photographs and videos presented as an exhibition. Click a piece to read the short poem or note behind it.
+                </p>
+              </div>
+
+              <div class="flex gap-4 items-center mt-6">
+                <a href="#works" class="inline-flex items-center gap-3 px-6 py-3 bg-slate-900 text-white rounded-full shadow">Lihat Karya</a>
+                <a href="#contact" class="inline-flex items-center gap-3 px-5 py-2 rounded-full border bg-white/90">Hubungi</a>
+              </div>
+
+              <!-- search / filter chips -->
+              <div class="mt-8 flex flex-wrap gap-3">
+                <div class="chip"><select class="bg-transparent outline-none text-sm"><option>Semua kategori</option><option>Photography</option><option>Design</option><option>Video</option></select></div>
+                <div class="chip"><select class="bg-transparent outline-none text-sm"><option>2025</option><option>2024</option></select></div>
+                <div class="chip"><button class="text-sm">Explore</button></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Split preview mini -->
-      <div class="mt-6 rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-5">
-        <div class="grid grid-cols-2 gap-4">
-          <div class="rounded-xl overflow-hidden border border-white/10 bg-white/[0.03]">
-            <img src="../images/foto-profile-hero.jpg" class="w-full h-40 object-cover" alt="Black preview">
-          </div>
-          <div class="rounded-xl overflow-hidden border border-white/10 bg-white">
-            <img src="../images/logo2.jpg" class="w-full h-40 object-cover" alt="White preview">
+    <!-- ABOUT + STATS -->
+    <section id="about" class="mt-12">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div class="lg:col-span-2 bg-white/80 glass-card rounded-xl p-8">
+          <h3 class="text-2xl font-bold">Tentang Gal</h3>
+          <p class="mt-4 text-slate-700 max-w-3xl">
+            Gal (Galih) — Visual artist & designer. Saya bekerja pada fotografi, desain identitas, dan instalasi visual. Situs ini adalah pameran daring untuk karya-karya terpilih.
+          </p>
+
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">1210</div>
+              <div class="text-xs text-slate-500">Projects</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">143</div>
+              <div class="text-xs text-slate-500">Clients</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">50+</div>
+              <div class="text-xs text-slate-500">Countries</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">10</div>
+              <div class="text-xs text-slate-500">Years</div>
+            </div>
           </div>
         </div>
-        <p class="mt-3 text-xs text-gray-400 text-center">
-          Dua persona visual — pilih mode di atas untuk masuk ke versi masing-masing.
-        </p>
+
+        <aside class="bg-white/90 rounded-xl p-6 glass-card">
+          <h4 class="font-semibold">Info Terbaru</h4>
+          <p class="mt-3 text-sm text-slate-600">Pameran offline: Yogyakarta — Nov 2025</p>
+          <div class="mt-6">
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full bg-slate-900 text-white">Book Visit</a>
+          </div>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-6 bg-gradient-to-b from-gray-900 to-black text-center">
-    <h2 class="text-2xl font-bold mb-2">Contact</h2>
-    <p class="text-gray-400 mb-6">Temukan saya di platform berikut:</p>
+    <!-- WHY + CARDS -->
+    <section id="why" class="mt-12">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <h3 class="text-2xl font-bold mb-6">Kenapa memilih karya saya?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-xl glass-card">
+            <h5 class="font-semibold">Estetika Terukur</h5>
+            <p class="mt-2 text-sm text-slate-600">Desain rapi, tipografi kuat — sesuai referensi landing.</p>
+          </div>
+          <div class="p-6 rounded-xl glass-card">
+            <h5 class="font-semibold">Kisah di Balik Foto</h5>
+            <p class="mt-2 text-sm text-slate-600">Setiap foto disertai puisi singkat saat diklik.</p>
+          </div>
+          <div class="p-6 rounded-xl glass-card">
+            <h5 class="font-semibold">Pengalaman Pameran</h5>
+            <p class="mt-2 text-sm text-slate-600">Mudah di-booking untuk pameran dan cetak karya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="flex justify-center gap-10">
-      <a href="https://www.instagram.com/blackmttr?igsh=ODdpbHIxY3dkbWlh" target="_blank" rel="noopener noreferrer"
-         class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
-        <img src="../images/instagram.png" alt="Instagram" class="h-12 w-12 object-contain">
-        <span class="text-white font-normal tracking-wide">@blackmttr</span>
-      </a>
+    <!-- WORKS GRID -->
+    <section id="works" class="mt-10">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-2xl font-bold">Selected Works</h3>
+          <p class="text-sm text-slate-600">Click to open poem & notes</p>
+        </div>
 
-      <a href="https://www.tiktok.com/@_itsgal?_t=ZS-8z9YayUtc37&_r=1" target="_blank" rel="noopener noreferrer"
-         class="group flex flex-col items-center gap-1 hover:opacity-80 transition">
-        <img src="../images/tiktok.png" alt="TikTok" class="h-12 w-12 object-contain mx-auto">
-        <span class="text-white font-normal tracking-wide">@_itsgal</span>
-      </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- card -->
+          <article class="rounded-xl overflow-hidden bg-white border">
+            <button class="w-full text-left group" data-title="Solitude in Blue" data-poem="In the hush of dawn, cobalt seas breathe..." data-img="./images/card1.jpg">
+              <div class="w-full h-56 overflow-hidden">
+                <img src="./images/card1.jpg" alt="p1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400">
+              </div>
+              <div class="p-4">
+                <h4 class="font-semibold">Solitude in Blue</h4>
+                <p class="text-xs text-slate-500 mt-1">Photography • 2024</p>
+              </div>
+            </button>
+          </article>
 
-      <a href="https://www.behance.net/g632" target="_blank" rel="noopener noreferrer"
-         class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
-        <img src="../images/behance.png" alt="Behance" class="h-12 w-12 object-contain">
-        <span class="text-white font-normal tracking-wide">/g632</span>
-      </a>
-    </div>
-  </section>
-<!-- ====================== SPONSORS ====================== -->
-<section id="sponsors" class="relative bg-black">
-  <div class="relative max-w-7xl mx-auto px-4 py-12 sm:py-16">
-    <div class="text-center mb-8">
-      <p class="text-xs tracking-[0.2em] text-gray-400 uppercase">Trusted by</p>
-      <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Our Sponsors & Partners</h3>
-    </div>
+          <article class="rounded-xl overflow-hidden bg-white border">
+            <button class="w-full text-left group" data-title="Paper Boats" data-poem="Tiny vessels of memory..." data-img="./images/card2.jpg">
+              <div class="w-full h-56 overflow-hidden">
+                <img src="./images/card2.jpg" alt="p2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400">
+              </div>
+              <div class="p-4">
+                <h4 class="font-semibold">Paper Boats</h4>
+                <p class="text-xs text-slate-500 mt-1">Illustration • 2023</p>
+              </div>
+            </button>
+          </article>
 
-    <!-- GRID: TANPA BACKGROUND/BORDER, LOGO UKURAN SEDANG -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 sm:gap-y-12 gap-x-6 sm:gap-x-10 place-items-center">
-      <a href="https://www.instagram.com/cuanity.co?igsh=MWI0Mjk2cHo0eGdjbw==/sponsor1" target="_blank" rel="noopener" class="group">
-        <img src="../images/cuanity.png"
-             onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';"
-             alt="Sponsor 1"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
+          <article class="rounded-xl overflow-hidden bg-white border">
+            <button class="w-full text-left group" data-title="Glass & Ash" data-poem="Mirrored windows keep the ash..." data-img="./images/card3.jpg">
+              <div class="w-full h-56 overflow-hidden">
+                <img src="./images/card3.jpg" alt="p3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400">
+              </div>
+              <div class="p-4">
+                <h4 class="font-semibold">Glass & Ash</h4>
+                <p class="text-xs text-slate-500 mt-1">Design Study • 2022</p>
+              </div>
+            </button>
+          </article>
 
-      <a href="https://www.instagram.com/sponsor2" target="_blank" rel="noopener" class="group">
-        <img src="../images/whoimmal.png"
-             alt="Sponsor 2"
-             class="h-10 sm:h-7 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
+          <!-- add more cards similarly -->
+        </div>
+      </div>
+    </section>
 
-      <a href="https://www.instagram.com/sponsor3" target="_blank" rel="noopener" class="group">
-        <img src="../images/sponsors/logo-3.png"
-             alt="Sponsor 3"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
+    <!-- SPONSORS -->
+    <section id="sponsors" class="mt-6">
+      <div class="max-w-7xl mx-auto px-6 py-10 bg-white/80 glass-card rounded-xl">
+        <h4 class="font-semibold text-center mb-6">Trusted by</h4>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+          <img src="./images/partner1.png" class="mx-auto h-10 object-contain" alt="">
+          <img src="./images/partner2.png" class="mx-auto h-10 object-contain" alt="">
+          <img src="./images/partner3.png" class="mx-auto h-10 object-contain" alt="">
+          <img src="./images/partner4.png" class="mx-auto h-10 object-contain" alt="">
+          <img src="./images/partner5.png" class="mx-auto h-10 object-contain" alt="">
+        </div>
+      </div>
+    </section>
 
-      <a href="https://www.instagram.com/sponsor4" target="_blank" rel="noopener" class="group">
-        <img src="../images/sponsors/logo-4.png"
-             alt="Sponsor 4"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
+    <!-- CONTACT + FOOTER -->
+    <footer id="contact" class="mt-12">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-3 gap-8 items-start">
+          <div>
+            <h5 class="font-semibold">Contact</h5>
+            <p class="mt-3 text-slate-600">blackmatterrrr@gmail.com</p>
+            <p class="text-slate-600">Yogyakarta, ID</p>
+          </div>
+          <div>
+            <h5 class="font-semibold">Follow</h5>
+            <ul class="mt-3 text-slate-600 space-y-2">
+              <li><a href="#" class="hover:underline">Instagram</a></li>
+              <li><a href="#" class="hover:underline">Behance</a></li>
+              <li><a href="#" class="hover:underline">TikTok</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold">About</h5>
+            <p class="mt-3 text-slate-600">A small gallery by Gal — bringing visual stories to light.</p>
+            <a href="./index.html" class="inline-block mt-4 px-4 py-2 rounded-full bg-slate-900 text-white">← Back to BTR</a>
+          </div>
+        </div>
 
-      <a href="https://www.instagram.com/sponsor5" target="_blank" rel="noopener" class="group">
-        <img src="../images/sponsors/logo-5.png"
-             alt="Sponsor 5"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
-    </div>
+        <div class="mt-10 text-center text-xs text-slate-500">
+          © 2025 Galstronaut — All rights reserved.
+        </div>
+      </div>
+    </footer>
 
-    <!-- MARQUEE (desktop) TANPA BACKGROUND JUGA -->
-    <div class="mt-12 hidden md:block">
-      <div class="relative overflow-hidden">
-        <div class="marquee flex items-center gap-16 p-2">
-          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/whoimmal.png" alt="Sponsor 2" class="h-7 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+  </main>
 
-          <!-- duplikasi untuk loop mulus -->
-          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-2.png" alt="Sponsor 2" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+  <!-- MODAL (poem view) -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center p-6 z-50">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl">
+      <div class="grid md:grid-cols-2">
+        <div>
+          <img id="modal-img" src="./images/card1.jpg" alt="" class="w-full h-96 object-cover">
+        </div>
+        <div class="p-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 id="modal-title" class="text-2xl font-bold"></h3>
+              <p id="modal-meta" class="text-sm text-slate-500 mt-1"></p>
+            </div>
+            <button id="modal-close" class="text-slate-400 hover:text-slate-700">✕</button>
+          </div>
+          <div id="modal-poem" class="mt-6 text-slate-700 leading-relaxed"></div>
         </div>
       </div>
     </div>
   </div>
 
- <style>
-  @keyframes sponsors-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  #sponsors .marquee {
-    width: 200%;
-    display: flex;
-    animation: sponsors-marquee 25s linear infinite;
-  }
-
-  /* saat hover, animasi berhenti sementara */
-  #sponsors .marquee:hover {
-    animation-play-state: paused;
-  }
-</style>
-
-
-  <!-- FOOTER -->
-  <footer class="py-2 text-center bg-black border-t border-gray-800">
-    <p class="text-gray-500 text-sm">© 2025 Blackmatter. All rights reserved.</p>
-  </footer>
-
-  <!-- JS: toggle menu mobile + redirect collab -->
+  <!-- JS: modal -->
   <script>
-    // Menu mobile
-    const btn = document.getElementById('menuBtn');
-    const panel = document.getElementById('menuPanel');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalPoem = document.getElementById('modal-poem');
+    const modalClose = document.getElementById('modal-close');
 
-    btn.addEventListener('click', () => {
-      const isHidden = panel.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(!isHidden));
-      iconOpen.classList.toggle('hidden');
-      iconClose.classList.toggle('hidden');
-    });
+    document.querySelectorAll('[data-title]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const t = btn.getAttribute('data-title') || '';
+        const p = btn.getAttribute('data-poem') || '';
+        const im = btn.getAttribute('data-img') || btn.querySelector('img')?.src || '';
 
-    panel.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        if (!panel.classList.contains('hidden')) {
-          panel.classList.add('hidden');
-          btn.setAttribute('aria-expanded', 'false');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
+        modalTitle.textContent = t;
+        modalPoem.textContent = p;
+        modalImg.src = im;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modalClose.focus();
       });
     });
 
-    // Redirect Collab buttons
-    const DARK_URL  = 'index.html#profile';       // tetap di Blackmatter
-    const WHITE_URL = 'graffiello_v/index.html';  // ganti ke URL graffiello_v yang sebenarnya
+    modalClose.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    });
 
-    document.getElementById('collabGoDark') ?.addEventListener('click', ()=> window.location.href = DARK_URL);
-    document.getElementById('collabGoWhite')?.addEventListener('click', ()=> window.location.href = WHITE_URL);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden'); modal.classList.remove('flex');
+      }
+    });
   </script>
 </body>
 </html>
