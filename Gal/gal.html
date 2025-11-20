@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>G.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../Gal/gal.css">
+  <meta name="color-scheme" content="light">
+</head>
+
+<body class="antialiased text-slate-900">
+
+  <!-- OPENING SCREEN -->
+  <div id="opening-screen">
+    <div class="opening-container">
+      <div class="opening-logo">G.STUDIO</div>
+      <div class="opening-signature">A Soul Finally Heard</div>
+    </div>
+    <div class="opening-enter">- welcome -</div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 glass-card backdrop-blur-none main-content">
+    <div class="max-w-10xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+         <!-- Logo -->
+      <a href="#home" class="flex items-center">
+        <img src="../Gal/images/logo.png" class="h-12 w-auto" alt="Gal Logo">
+      </a>
+      </div>
+      <nav class="hidden md:flex gap-6 items-center text-sm text-slate-700 font-bold">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#fashion-gallery" class="hover:underline nav-tab active" data-target="fashion">Fashion</a>
+        <a href="#design-gallery" class="hover:underline nav-tab" data-target="design">Design</a>
+        <a href="#gallery" class="hover:underline nav-tab" data-target="gallery">Gallery</a>
+        <a href="#contact" class="px-4 py-2 border rounded-full bg-white/90">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button class="px-3 py-2 rounded-md bg-white/90">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pb-20 main-content">
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center">
+      <div class="hero-placeholder absolute inset-0 w-full h-full object-cover opacity-90">
+        <p>Hero Image - G.STUDIO</p>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-white/0 to-white/80"></div>
+
+      <div class="relative text-center max-w-2xl px-6">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">G.STUDIO</h1>
+        <p class="text-gray-700 mb-6">Visual narratives that capture the essence of moments, transforming them into timeless art.</p>
+        <a href="#gallery" class="bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">Explore Works</a>
+      </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-hero overflow-hidden relative glass-card">
+
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- image -->
+            <div class="relative min-h-[360px]">
+              <img src="../Gal/images/me5.jpeg" alt="Hero" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/"></div>
+              <!-- Tambahkan efek cahaya pada logo -->
+              <div class="km-logo"></div>
+            </div>
+
+            <!-- text -->
+            <div class="p-10 lg:p-16 flex flex-col justify-center">
+              <div class="mb-6">
+                <div class="relative">
+                <h1 class="mt-5 text-5xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+       <p>G.STUDIO</p> 
+    </h1>
+                <span class="signature-text">A Soul Finally Heard</span>
+                <!-- Teks diubah ukuran dan warna -->
+                <p class="mt-4 text-sm text-gray-600 max-w-xl">
+                  G.Fragment is born from a simple idea: that every creation is a soul waiting to be awakened. 
+                  Within shifting spaces and quiet moments, scattered fragments—tones, movements, textures, impressions—are gathered and given breath.
+                  G.Fragment sees creativity as the act of reviving what once remained silent:
+                  a visual soul brought into presence, seen, and finally heard.
+                  Not to tell the story of its maker, but to reveal what can be brought to life from a single fragment.
+                </p>
+              </div>
+
+              <!-- BUTTONS -->
+              <div class="flex gap-4 items-center mt-6">
+                <button id="open-projects"
+                        class="cursor-pointer inline-flex items-center gap-3 px-6 py-3 bg-slate-900 text-white rounded-full shadow">
+                  Lihat Karya
+                </button>
+
+                <a href="#contact" class="inline-flex items-center gap-3 px-5 py-2 rounded-full border bg-white/90">
+                  Hubungi
+                </a>
+              </div>
+
+              <!-- FILTERS -->
+              <div class="mt-8 flex flex-wrap gap-3">
+                <div class="chip">
+                  <select class="bg-transparent outline-none text-sm">
+                    <option>Semua kategori</option><option>Photography</option><option>Design</option><option>Video</option>
+                  </select>
+                </div>
+                <div class="chip">
+                  <select class="bg-transparent outline-none text-sm">
+                    <option>2025</option><option>2024</option>
+                  </select>
+                </div>
+                <div class="chip"><button class="text-sm">Explore</button></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="mt-12">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+        <div class="lg:col-span-2 bg-white/80 glass-card rounded-xl p-8">
+          <h3 class="text-2xl font-bold">Tentang Gal</h3>
+          <p class="mt-4 text-slate-700 max-w-3xl">
+            Gal (Galih) — Visual artist & designer. Saya bekerja pada fotografi, desain identitas, dan instalasi visual.
+          </p>
+
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">1210</div><div class="text-xs text-slate-500">Projects</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">143</div><div class="text-xs text-slate-500">Clients</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">50+</div><div class="text-xs text-slate-500">Countries</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white border">
+              <div class="text-2xl font-bold">10</div><div class="text-xs text-slate-500">Years</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="bg-white/90 rounded-xl p-6 glass-card">
+          <h4 class="font-semibold">Info Terbaru</h4>
+          <p class="mt-3 text-sm text-slate-600">Pameran offline: Yogyakarta — Nov 2025</p>
+          <div class="mt-6">
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full bg-slate-900 text-white">Book Visit</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY: masonry-like 3-col grid ===== -->
+    <section id="gallery" class="max-w-7xl mx-auto px-6 md:px-8 py-16">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold">Gallery — Selected Works</h2>
+        <p class="text-sm text-slate-500">Click any image to view its poem & notes.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- repeatable gallery card -->
+        <!-- card data-poem attribute holds short poem / text to show in modal -->
+        <article class="rounded-2xl overflow-hidden bg-white border border-slate-100 card-hover transition-transform duration-200">
+          <button class="group w-full text-left" data-title="Solitude in Blue" data-author="— Graffiello" data-poem="In the hush of dawn, cobalt seas breathe—solitude learns the tongue of light." data-img="./images/2.jpg" aria-haspopup="dialog">
+            <div class="w-full h-56 overflow-hidden">
+              <img src="./images/2.jpg" alt="Solitude in Blue" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400">
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold">Solitude in Blue</h3>
+              <p class="text-xs text-slate-500 mt-1">Photography • 2024</p>
+            </div>
+          </button>
+        </article>
+
+        <article class="rounded-2xl overflow-hidden bg-white border border-slate-100 card-hover">
+          <button class="group w-full text-left" data-title="Edge of Quiet" data-author="— G." data-poem="Cliffs hold the last letters of summer; wind erases and writes again." data-img="./images/3.jpg" aria-haspopup="dialog">
+            <div class="w-full h-56 overflow-hidden">
+              <img src="./images/3.jpg" alt="Edge of Quiet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400">
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold">Edge of Quiet</h3>
+              <p class="text-xs text-slate-500 mt-1">Mixed Media • 2023</p>
+            </div>
+          </button>
+        </article>
+
+        <article class="rounded-2xl overflow-hidden bg-white border border-slate-100 card-hover">
+          <button class="group w-full text-left" data-title="Glass & Ash" data-author="— G." data-poem="Mirrored windows keep the ash of old fires; we pass, polished and unburnt." data-img="./images/4.jpg" aria-haspopup="dialog">
+            <div class="w-full h-56 overflow-hidden">
+              <img src="./images/4.jpg" alt="Glass & Ash" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400">
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold">Glass & Ash</h3>
+              <p class="text-xs text-slate-500 mt-1">Design Study • 2022</p>
+            </div>
+          </button>
+        </article>
+       </section>
+
+    <!-- WHY -->
+    <section id="why" class="mt-12">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <h3 class="text-2xl font-bold mb-6">Kenapa memilih karya saya?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <div class="p-6 rounded-xl glass-card">
+            <h5 class="font-semibold">Estetika Terukur</h5>
+            <p class="mt-2 text-sm text-slate-600">Desain rapi, tipografi kuat.</p>
+          </div>
+
+          <div class="p-6 rounded-xl glass-card">
+            <h5 class="font-semibold">Kisah di Balik Foto</h5>
+            <p class="mt-2 text-sm text-slate-600">Setiap foto disertai puisi.</p>
+          </div>
+
+          <div class="p-6 rounded-xl glass-card">
+            <h5 class="font-semibold">Pengalaman Pameran</h5>
+            <p class="mt-2 text-sm text-slate-600">Mudah di-booking untuk pameran.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <footer id="contact" class="mt-12">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-3 gap-8 items-start">
+          <div>
+            <h5 class="font-semibold">Contact</h5>
+            <p class="mt-3 text-slate-600">blackmatterrrr@gmail.com</p>
+            <p class="text-slate-600">Yogyakarta, ID</p>
+          </div>
+          <div>
+            <h5 class="font-semibold">Follow</h5>
+            <ul class="mt-3 text-slate-600 space-y-2">
+              <li><a href="#" class="hover:underline">Instagram</a></li>
+              <li><a href="#" class="hover:underline">Behance</a></li>
+              <li><a href="#" class="hover:underline">TikTok</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold">About</h5>
+            <p class="mt-3 text-slate-600">A small gallery by Gal — bringing visual stories to light.</p>
+            <a href="./index.html" class="inline-block mt-4 px-4 py-2 rounded-full bg-slate-900 text-white">← Back to BTR</a>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center text-xs text-slate-500">
+          © 2025 Galstronaut — All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- MODAL PILIH PORTFOLIO -->
+  <div id="project-modal" class="fixed inset-0 hidden items-center justify-center z-50">
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative bg-white/90 rounded-2xl p-8 shadow-2xl w-[90%] max-w-md glass-card">
+      <h3 class="text-xl font-bold text-slate-900 mb-6 text-center">Pilih Portfolio</h3>
+
+      <div class="flex flex-col gap-4">
+
+        <a href="./indexbtr.html"
+           class="block p-4 rounded-xl bg-white border hover:bg-slate-100 transition">
+          <div class="font-semibold text-slate-800">Blackmatter</div>
+          <p class="text-xs text-slate-600">Portfolio desain, seni visual & editing.</p>
+        </a>
+
+        <a href="./indexgv.html"
+           class="block p-4 rounded-xl bg-white border hover:bg-slate-100 transition">
+          <div class="font-semibold text-slate-800">Graffiello_v</div>
+          <p class="text-xs text-slate-600">Eksperimen grafis & logo.</p>
+        </a>
+
+      </div>
+
+      <button id="close-projects"
+              class="mt-6 w-full py-2 bg-slate-900 text-white rounded-full">
+        Tutup
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL KARYA -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center p-6 z-50">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl">
+      <div class="grid md:grid-cols-2">
+        <div><img id="modal-img" src="" class="w-full h-96 object-cover"></div>
+        <div class="p-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 id="modal-title" class="text-2xl font-bold"></h3>
+              <p id="modal-author" class="text-sm text-slate-700 mt-1"></p>
+              <p id="modal-meta" class="text-sm text-slate-500 mt-1"></p>
+            </div>
+            <button id="modal-close" class="text-slate-400 hover:text-slate-700">✕</button>
+          </div>
+          <div id="modal-poem" class="mt-6 text-slate-700 leading-relaxed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../Gal/gal.js"></script>
+</body>
+</html>

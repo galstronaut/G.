@@ -1,0 +1,101 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    color: #1c1c1c;
+    background: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    padding: 25px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ececec;
+    background: #fff;
+}
+
+.navbar .logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.navbar nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.navbar nav a:hover {
+    color: #1d77ff;
+}
+
+/* Title */
+.page-title {
+    text-align: center;
+    margin: 50px 0 30px;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+/* Gallery */
+.gallery {
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.item {
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.item img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.info {
+    margin-top: 15px;
+    padding: 3px;
+}
+
+.info h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.info p {
+    margin: 5px 0 15px;
+    color: #7a7a7a;
+}
+
+/* Like + Comment */
+.interact {
+    display: flex;
+    gap: 18px;
+    font-size: 15px;
+}
+
+.interact i {
+    margin-right: 6px;
+    font-size: 18px;
+    color: #555;
+    transition: 0.2s ease;
+}
+
+.like:hover i {
+    color: #ff4d6d;
+    transform: scale(1.15);
+}
+
+.comment:hover i {
+    color: #007bff;
+    transform: scale(1.15);
+}
