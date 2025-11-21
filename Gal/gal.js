@@ -27,22 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize animation with requestAnimationFrame for smoother performance
   function startOpeningAnimation() {
     requestAnimationFrame(() => {
+      // SEMUA ELEMEN MUNCUL BERSAMAAN
       openingLogo.style.opacity = '1';
       openingLogo.style.transform = 'translateX(0)';
+      
+      openingSignature.style.opacity = '1';
+      openingSignature.style.transform = 'translateX(0)';
+      
+      openingEnter.style.opacity = '1';
     });
-    
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        openingSignature.style.opacity = '1';
-        openingSignature.style.transform = 'translateX(0)';
-      });
-    }, 400);
-    
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        openingEnter.style.opacity = '1';
-      });
-    }, 1200);
   }
   
   // Start the opening animation after a brief delay to ensure DOM is ready
@@ -76,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Event listener for click on enter button
   openingEnter.addEventListener('click', exitOpening);
   
-  // Also exit automatically after 5 seconds
-  const autoExitTimer = setTimeout(exitOpening, 5000);
+  // Also exit automatically after 3 seconds
+  const autoExitTimer = setTimeout(exitOpening, 3000);
   
   // Allow skipping by pressing any key
   document.addEventListener('keydown', function(e) {
